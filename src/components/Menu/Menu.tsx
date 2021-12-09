@@ -338,7 +338,6 @@ class Menu extends React.Component<Props, State> {
   private hide = () => {
     this.removeListeners();
 
-    const { animation } = this.props.theme;
     this.setState({ menuLayout: { width: 0, height: 0 }, rendered: false });
     this.state.scaleAnimation.setValue({ x: 0, y: 0 });
     this.focusFirstDOMNode(this.anchor);
