@@ -339,18 +339,9 @@ class Menu extends React.Component<Props, State> {
     this.removeListeners();
 
     const { animation } = this.props.theme;
-    Animated.timing(this.state.opacityAnimation, {
-      toValue: 0,
-      duration: ANIMATION_DURATION * animation.scale,
-      easing: EASING,
-      useNativeDriver: true,
-    }).start(({ finished }) => {
-      if (finished) {
-        this.setState({ menuLayout: { width: 0, height: 0 }, rendered: false });
-        this.state.scaleAnimation.setValue({ x: 0, y: 0 });
-        this.focusFirstDOMNode(this.anchor);
-      }
-    });
+    this.setState({ menuLayout: { width: 0, height: 0 }, rendered: false });
+    this.state.scaleAnimation.setValue({ x: 0, y: 0 });
+    this.focusFirstDOMNode(this.anchor);
   };
 
   render() {
