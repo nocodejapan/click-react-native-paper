@@ -48,6 +48,7 @@ type Props = {
    * Accessibility label for the Touchable. This is read by the screen reader when the user taps the component.
    */
   accessibilityLabel?: string;
+  numberOfLines?: number
 };
 
 /**
@@ -89,6 +90,7 @@ const MenuItem = ({
   titleStyle,
   accessibilityLabel,
   theme,
+  numberOfLines,
 }: Props) => {
   const disabledColor = color(theme.dark ? white : black)
     .alpha(0.32)
@@ -130,7 +132,7 @@ const MenuItem = ({
         >
           <Text
             selectable={false}
-            numberOfLines={1}
+            numberOfLines={numberOfLines}
             style={[styles.title, { color: titleColor }, titleStyle]}
           >
             {title}
